@@ -1,19 +1,16 @@
 class App extends React.Component {
 
-   state={
+   state = {
       oman:'',
       omany : ['Wygrasz na loterii ','Dobry czas na miłość ','Dobry czas na naukę Reacta '],
       value: '',
     }
 
-    handleDraw=() => {
-       
-        
+    handleDraw = () => {
         const index = Math.round(Math.random()*(this.state.omany.length-1))
         this.setState({
            oman: this.state.omany[index] 
-               })
- 
+        })
     }
 
     handleAdd = () => {
@@ -26,24 +23,22 @@ class App extends React.Component {
         alert(`Wróżba została dodana`)
     }
 
-    handleInputChange=(event) => {
+    handleInputChange = (event) => {
         this.setState({
-            value:event.target.value
+            value: event.target.value
         })
-
     }
 
     render() {
-        
         return(
             <React.Fragment>
-            <button className="losuj" onClick={this.handleDraw}>Wylosuj  wróżbę na dziś</button>
-            <br/>
-            <input type="text" value={this.state.value} onChange={this.handleInputChange}></input>
-            <button className="dodaj" onClick={this.handleAdd}>Dodaj własną wróżbę</button>
-            <br/>
-            <br/>
-            {this.state.oman ? <label >{this.state.oman}</label> : null}
+               <button className="losuj" onClick={this.handleDraw}>Wylosuj wróżbę na dziś</button>
+               <br/>
+               <input type="text" value={this.state.value} onChange={this.handleInputChange}></input>
+               <button className="dodaj" onClick={this.handleAdd}>Dodaj własną wróżbę</button>
+               <br/>
+               <br/>
+               {this.state.oman ? <label >{this.state.oman}</label> : null}
             </React.Fragment>
         )
     }
